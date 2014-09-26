@@ -1,5 +1,6 @@
 // type `grunt` to watch files
 var shell = require('shelljs');
+var path = require('path');
 
 module.exports = function(grunt) {
 
@@ -17,8 +18,13 @@ module.exports = function(grunt) {
 
   grunt.event.on('watch', function(action, filepath) {
     if(isClass(filepath)) {
-      console.log('Checking for bugs in ' + filepath);
-      shell.exec('findbugs-algs4 ' + filepath);
+      // console.log('Checking for bugs in ' + filepath);
+      // shell.exec('findbugs-algs4 ' + filepath);
+      console.log('Executing compiled class');
+      var dirname = path.dirname(filepath);
+      var filename = path.basename(filepath).split('.')[0];
+      var cmd = ['cd ' + dirname, 'java ' + filename].join('&&');
+      shell.exec(cmd);
     } else {
       console.log('Checking style for ' + filepath);
       shell.exec('checkstyle-algs4 ' + filepath);
