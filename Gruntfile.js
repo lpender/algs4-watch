@@ -23,11 +23,11 @@ module.exports = function(grunt) {
       console.log('Executing compiled class');
       var dirname = path.dirname(filepath);
       var filename = path.basename(filepath).split('.')[0];
-      var cmd = ['cd ' + dirname, 'java ' + filename].join('&&');
+      var cmd = ['cd ' + dirname, 'java-algs4 ' + filename].join('&&');
       shell.exec(cmd);
     } else {
-      console.log('Checking style for ' + filepath);
-      shell.exec('checkstyle-algs4 ' + filepath);
+      // console.log('Checking style for ' + filepath);
+      // shell.exec('checkstyle-algs4 ' + filepath);
       console.log('Compiling ' + filepath);
       shell.exec('javac-algs4 ' + filepath);
     }
