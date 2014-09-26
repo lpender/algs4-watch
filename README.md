@@ -30,6 +30,23 @@ Setup
 
 Install NPM if you don't have it already.
 
-`npm install`
-`npm install -g grunt-cli`
-`grunt`
+```
+npm install
+npm install -g grunt-cli
+grunt
+```
+
+Include the `algs4.jar` and `stdlib.jar` in your JAVA class path.
+
+#VIM w/ Syntastic#
+
+```
+:SyntasticJavacEditClasspath
+/path/to/algs4/algs4.jar
+/path/to/algs4/stdlib.jar
+```
+
+Put all coursework under a "coursework" directory, so that it is ignored by
+`git`.
+
+
