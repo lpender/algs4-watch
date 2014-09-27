@@ -40,10 +40,9 @@ Include the `algs4.jar` and `stdlib.jar` in your JAVA class path.
 
 #VIM w/ Syntastic#
 
+in ~/.vimrc add:
 ```
-:SyntasticJavacEditClasspath
-/path/to/algs4/algs4.jar
-/path/to/algs4/stdlib.jar
+let g:syntastic_java_javac_config_file_enabled=1
 ```
 
 Put all coursework under a "coursework" directory, so that it is ignored by

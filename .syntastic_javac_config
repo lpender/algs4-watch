@@ -1,0 +1,1 @@
+let g:syntastic_java_javac_classpath = 'stdlib.jar:algs4.jar:coursework/*'
