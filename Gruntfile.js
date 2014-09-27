@@ -16,20 +16,24 @@ module.exports = function(grunt) {
     }
   });
 
+  function execute(cmd, filepath) {
+    var dirname = path.dirname(filepath);
+    var filename = path.basename(filepath);
+    var instructions = ['cd ' + dirname, cmd + ' ' + filename].join('&&');
+    shell.exec(instructions);
+  }
+
   grunt.event.on('watch', function(action, filepath) {
     if(isClass(filepath)) {
       // console.log('Checking for bugs in ' + filepath);
       // shell.exec('findbugs-algs4 ' + filepath);
       console.log('Executing compiled class');
-      var dirname = path.dirname(filepath);
-      var filename = path.basename(filepath).split('.')[0];
-      var cmd = ['cd ' + dirname, 'java-algs4 ' + filename].join('&&');
-      shell.exec(cmd);
+      execute('java-algs4', filepath.split('.')[0]);
     } else {
       // console.log('Checking style for ' + filepath);
       // shell.exec('checkstyle-algs4 ' + filepath);
       console.log('Compiling ' + filepath);
-      shell.exec('javac-algs4 ' + filepath);
+      execute('javac-algs4', filepath);
     }
   });
 
